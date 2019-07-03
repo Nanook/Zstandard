@@ -1,0 +1,32 @@
+apply plugin: 'java'
+apply plugin: 'maven-publish'
+
+javadoc.options.encoding = 'UTF-8'
+compileJava.options.encoding = 'UTF-8'
+
+sourceCompatibility = 1.7
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: "junit", name: "junit", version: "4.+"
+}
+
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from javadoc.destinationDir
+}
+
+task sourcesJar(type: Jar, dependsOn: classes) {
+    classifier = 'sources'
+    from sourceSets.main.allSource
+}
+
+jar {
+    manifest {
+        attributes 'Implementation-Title': 'Zstandard - Fast real-time compression algorithm.',
+            'Implementation-Version': version
+    }
+}

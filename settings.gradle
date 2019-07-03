@@ -1,0 +1,3 @@
+rootProject.name="rtmath-zstd"
+
+include 'java'
