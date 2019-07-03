@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFramework>netstandard1.1</TargetFramework>
+		<RootNamespace>RTMath.ZStd</RootNamespace>
+		<RepositoryType>git</RepositoryType>
+		<Authors>Deltix Inc.</Authors>
+		<Company>Deltix Inc.</Company>
+		<Copyright>Copyright (C) 2018-2019, Deltix Inc.</Copyright>
+		<RepositoryUrl>https://github.com/deltixlab/Zstandard.git</RepositoryUrl>
+		<Description>Zstandard - Fast real-time compression algorithm.</Description>
+		<PackageProjectUrl>https://gitlab.deltixhub.com/RTMath/Zstandard</PackageProjectUrl>
+		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+		<OutputPath>..\bin\$(Configuration)</OutputPath>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+	  <DefineConstants>TRACE;DEBUG;NETSTANDARD1_1;ZSTDPUBLIC</DefineConstants>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+	  <DefineConstants>TRACE;RELEASE;NETSTANDARD1_1;ZSTDPUBLIC</DefineConstants>
+	</PropertyGroup>
+	<ItemGroup>
+		<None Remove="LICENSE" />
+	</ItemGroup>
+</Project>
