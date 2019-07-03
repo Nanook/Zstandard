@@ -28,7 +28,7 @@ final class UnsafeUtil {
     static {
         ByteOrder order = ByteOrder.nativeOrder();
         if (!order.equals(ByteOrder.LITTLE_ENDIAN)) {
-            throw new IncompatibleJvmException(format("Zstandard requires a little endian platform (found %s)", order));
+            throw new RuntimeException(String.format("Zstandard requires a little endian platform (found %s)", order));
         }
         try {
             Field theUnsafe = Unsafe.class.getDeclaredField("theUnsafe");
